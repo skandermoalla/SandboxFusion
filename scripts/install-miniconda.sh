@@ -3,11 +3,11 @@ set -o errexit
 
 py_ver="$1"
 location="$2"
-FILENAME=Miniconda3-py${py_ver//.}_23.5.2-0-Linux-x86_64.sh
+FILENAME=Miniconda3-py${py_ver//.}_23.5.2-0-Linux-aarch64.sh
 
 if [ "$1" = "3.7" ]
 then
-FILENAME=Miniconda3-py${py_ver//.}_23.1.0-1-Linux-x86_64.sh
+FILENAME=Miniconda3-py${py_ver//.}_23.1.0-1-Linux-aarch64.sh
 fi
 
 if [ "$location" = "us" ]

@@ -72,6 +72,14 @@ docker build -f ./scripts/Dockerfile.server -t code_sandbox:server
 docker run -d --rm --privileged -p 8080:8080 code_sandbox:server make run-online
 ```
 
+```bash
+# For podman
+podman build -f ./scripts/Dockerfile.base -t code_sandbox:base .
+sed -i '1s/.*/FROM code_sandbox:base/' ./scripts/Dockerfile.server
+podman build --ulimit nofile=65536:65536 -f ./scripts/Dockerfile.server.us -t code_sandbox:server .
+podman run -it --rm --privileged -p 8080:8080 code_sandbox:server
+```
+
 **Manual**
 
 Prerequisites: [conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), [poetry](https://python-poetry.org/docs/#installation)
